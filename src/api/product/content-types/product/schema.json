@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "Company": {
+      "type": "enumeration",
+      "enum": [
+        "Apple",
+        "Microsoft",
+        "Facebook",
+        "Netflix"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "test": {
+      "type": "string",
+      "default": "https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "computer",
+        "headphones",
+        "tv",
+        "phone"
+      ]
+    },
+    "color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "colors": {
+      "type": "json"
+    }
+  }
+}
