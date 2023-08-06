@@ -54,10 +54,6 @@
       "type": "boolean",
       "default": false
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
-    },
     "colors": {
       "type": "json"
     }
