@@ -21,8 +21,8 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
       sanitizedQueryParams;
 
     const sortOptions = {
-      "price-high": "price:desc",
-      "price-low": "price:asc",
+      high: "price:desc",
+      low: "price:asc",
       "a-z": "title:asc",
       "z-a": "title:desc",
     };
