@@ -17,7 +17,7 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
   async find(ctx) {
     const sanitizedQueryParams = await this.sanitizeQuery(ctx);
 
-    const { search, company, category, order, featured, shipping } =
+    const { search, company, category, order, featured, shipping, price } =
       sanitizedQueryParams;
 
     const sortOptions = {
@@ -50,6 +50,9 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
     }
     if (shipping) {
       queryObject.filters.shipping = { $eq: true };
+    }
+    if (price) {
+      queryObject.filters.price = { $lte: price };
     }
     console.log(queryObject);
     // console.log(sanitizedQueryParams);
