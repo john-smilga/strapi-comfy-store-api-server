@@ -54,8 +54,6 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
     if (price) {
       queryObject.filters.price = { $lte: price };
     }
-    console.log(queryObject);
-    // console.log(sanitizedQueryParams);
 
     const { results, pagination } = await strapi
       .service("api::product.product")
