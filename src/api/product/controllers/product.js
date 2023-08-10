@@ -16,9 +16,16 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
   // Method 3: Replacing a core action with proper sanitization
   async find(ctx) {
     const sanitizedQueryParams = await this.sanitizeQuery(ctx);
-
-    const { search, company, category, order, featured, shipping, price } =
-      sanitizedQueryParams;
+    const {
+      search,
+      company,
+      category,
+      order,
+      featured,
+      shipping,
+      price,
+      page,
+    } = sanitizedQueryParams;
 
     const sortOptions = {
       high: "price:desc",
@@ -53,6 +60,9 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
     }
     if (price) {
       queryObject.filters.price = { $lte: price };
+    }
+    if (page) {
+      queryObject.pagination = { page: page };
     }
 
     const { results, pagination } = await strapi

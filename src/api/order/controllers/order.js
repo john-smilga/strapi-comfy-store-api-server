@@ -17,12 +17,18 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     if (!user) {
       return ctx.unauthorized("You are not authorized!");
     }
+    const sanitizedQueryParams = await this.sanitizeQuery(ctx);
+
+    const { page } = sanitizedQueryParams;
 
     const queryObject = {
       populate: "*",
-      sort: "createdAt:desc",
+      sort: "id:desc",
       filters: { user: user.id },
     };
+    if (page) {
+      queryObject.pagination = { page: page };
+    }
 
     const { results, pagination } = await strapi
       .service("api::order.order")
@@ -68,7 +74,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       return ctx.badRequest("Please add some products to your order");
     }
 
-    if (user.username === "demo user" && user.email === "test@test.com") {
+    if (user.id === 4) {
       const randomIndex = Math.floor(Math.random() * fakeData.length);
       const { name, address } = fakeData[randomIndex];
 
