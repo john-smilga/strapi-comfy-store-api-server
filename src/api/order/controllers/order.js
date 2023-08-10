@@ -61,7 +61,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       return ctx.badRequest("Please add some products to your order");
     }
 
-    if (user.username === "coding addict" && user.email === "test@test.com") {
+    if (user.username === "demo user" && user.email === "test@test.com") {
       const randomIndex = Math.floor(Math.random() * fakeData.length);
       const { name, address } = fakeData[randomIndex];
 
