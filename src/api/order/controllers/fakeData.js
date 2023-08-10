@@ -1,0 +1,32 @@
+const fakeData = [
+  { name: "Silly Billy", address: "Laugh Avenue, Chuckle Town" },
+  { name: "Wacky Wendy", address: "Giggle Street, Snortsville" },
+  { name: "Jokes McGee", address: "Haha Lane, Guffaw Gardens" },
+  { name: "Chuckling Charlie", address: "Teehee Terrace, Punsburg" },
+  { name: "Giggle Galore", address: "Chuckle Lane, Whimsyville" },
+  { name: "Laughing Larry", address: "Funny Bone Road, Quirkville" },
+  { name: "Chortle Thompson", address: "Comedy Corner, Jestville" },
+  { name: "Guffaw Gracie", address: "Hilarious Heights, Chuckleville" },
+  { name: "Punny Penny", address: "Giggle Alley, Humor Hollow" },
+  {
+    name: "Chuck Norris (not the actor)",
+    address: "Jokester Junction, Prankwood",
+  },
+  { name: "Snicker Steve", address: "Whimsical Way, Punsberg" },
+  { name: "Haha Harrison", address: "Jolly Street, Giggletown" },
+  { name: "Tickle Tim", address: "Chuckling Avenue, Jesterville" },
+  { name: "Funnybones Fred", address: "Smile Street, Quipville" },
+  { name: "Riddle Rita", address: "Giggle Lane, Chuckleberg" },
+  { name: "Giggle Gary", address: "Wit Way, Snickerston" },
+  { name: "Punmaster Pete", address: "Joke Lane, Hahaville" },
+  { name: "Amusing Amy", address: "Laugh Street, Whimsytown" },
+  { name: "Cheerful Charlotte", address: "Chuckling Circle, Quirkington" },
+  { name: "Jolly Jerry", address: "Guffaw Road, Punsborough" },
+  { name: "HaHa Hannah", address: "Mirth Lane, Giggleton" },
+  { name: "Comedy Chris", address: "Witty Way, Chucklesburg" },
+  { name: "Giggle Gene", address: "Jest Street, Snortington" },
+  { name: "Whimsy Walter", address: "Pun Lane, Hilarity Heights" },
+  { name: "Laughs-a-Lot Lola", address: "Smirk Avenue, Chuckleberry" },
+];
+
+module.exports = fakeData;

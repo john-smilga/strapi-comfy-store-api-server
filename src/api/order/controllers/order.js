@@ -9,6 +9,8 @@
 // }
 
 const { createCoreController } = require("@strapi/strapi").factories;
+const fakeData = require("./fakeData");
+
 module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async find(ctx) {
     const user = ctx.state.user;
@@ -60,8 +62,11 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     }
 
     if (user.username === "coding addict" && user.email === "test@test.com") {
-      ctx.request.body.data.name = "coding addict";
-      ctx.request.body.data.address = "florida, usa";
+      const randomIndex = Math.floor(Math.random() * fakeData.length);
+      const { name, address } = fakeData[randomIndex];
+
+      ctx.request.body.data.name = name;
+      ctx.request.body.data.address = address;
     }
 
     try {
