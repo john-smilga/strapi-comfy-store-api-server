@@ -39,14 +39,21 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       return ctx.unauthorized("You are not authorized!");
     }
 
-    const { name, address, chargeTotal, orderTotal, products } =
-      ctx.request.body.data;
+    const {
+      name,
+      address,
+      chargeTotal,
+      orderTotal,
+      cartItems,
+      numItemsInCart,
+    } = ctx.request.body.data;
     const requiredFields = {
       name,
       address,
       chargeTotal,
       orderTotal,
-      products,
+      cartItems,
+      numItemsInCart,
     };
     for (const [field, value] of Object.entries(requiredFields)) {
       if (!value) {
@@ -57,7 +64,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     if (isNaN(chargeTotal)) {
       return ctx.badRequest("charge total is not a number");
     }
-    if (!Array.isArray(products) || products.length === 0) {
+    if (!Array.isArray(cartItems) || cartItems.length === 0) {
       return ctx.badRequest("Please add some products to your order");
     }
 

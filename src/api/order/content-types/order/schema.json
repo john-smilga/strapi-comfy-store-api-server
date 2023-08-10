@@ -15,10 +15,7 @@
     "address": {
       "type": "string"
     },
-    "chargeTotal": {
-      "type": "integer"
-    },
-    "products": {
+    "cartItems": {
       "type": "json"
     },
     "user": {
@@ -33,6 +30,9 @@
     },
     "orderTotal": {
       "type": "string"
+    },
+    "numItemsInCart": {
+      "type": "integer"
     }
   }
 }
