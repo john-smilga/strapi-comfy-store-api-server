@@ -64,12 +64,35 @@ module.exports = createCoreController("api::product.product", ({ strapi }) => ({
     if (page) {
       queryObject.pagination = { page: page };
     }
+    const { results: products } = await strapi
+      .service("api::product.product")
+      .find({ populate: "*", pagination: { pageSize: "100" } });
+
+    const { categories, companies } = products.reduce(
+      (result, product) => {
+        const { categories, companies } = result;
+        const { category, company } = product;
+        if (!categories.includes(category)) {
+          categories.push(category);
+        }
+        if (!companies.includes(company)) {
+          companies.push(company);
+        }
+
+        return result;
+      },
+      { categories: ["all"], companies: ["all"] }
+    );
 
     const { results, pagination } = await strapi
       .service("api::product.product")
       .find(queryObject);
     const sanitizedResults = await this.sanitizeOutput(results, ctx);
 
-    return this.transformResponse(sanitizedResults, { pagination });
+    return this.transformResponse(sanitizedResults, {
+      pagination,
+      categories,
+      companies,
+    });
   },
 }));
